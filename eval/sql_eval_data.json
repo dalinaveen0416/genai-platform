@@ -1,0 +1,10 @@
+[
+  {
+    "question": "How many employees are there?",
+    "expected": "3"
+  },
+  {
+    "question": "Show employee names",
+    "expected": "John"
+  }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "question": "What is Naveen Dali's role?",
+    "expected_keywords": ["Data Analyst", "Fresher"]
+  },
+  {
+    "question": "What programming languages does he know?",
+    "expected_keywords": ["SQL", "Python"]
+  },
+  {
+    "question": "What tools does he use for data visualization?",
+    "expected_keywords": ["Power BI"]
+  },
+  {
+    "question": "What Excel functions does he know?",
+    "expected_keywords": ["VLOOKUP", "IF", "COUNTIFS", "SUMIFS"]
+  },
+  {
+    "question": "What was his CGPA in B.Tech?",
+    "expected_keywords": ["7.34"]
+  },
+  {
+    "question": "Which college did he complete his B.Tech from?",
+    "expected_keywords": ["Newton’s Institute of Science and Technology"]
+  },
+  {
+    "question": "What projects has he worked on?",
+    "expected_keywords": ["Sales Insights", "HR Data Analytics"]
+  },
+  {
+    "question": "What KPIs did he calculate in HR project?",
+    "expected_keywords": ["attrition rate", "average tenure"]
+  },
+  {
+    "question": "What languages does he speak?",
+    "expected_keywords": ["Telugu", "English"]
+  }
+]

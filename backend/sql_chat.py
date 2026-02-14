@@ -3,7 +3,8 @@ from langchain_groq import ChatGroq
 from langchain_core.prompts import PromptTemplate
 from backend.create_db import create_sample_database
 import os
-
+from dotenv import load_dotenv
+load_dotenv()
 
 class SQLChat:
 
@@ -17,6 +18,7 @@ class SQLChat:
 
         # Groq LLM
         self.llm = ChatGroq(
+                api_key=os.getenv("GROQ_API_KEY"),
             model="llama-3.1-8b-instant",
             temperature=0
         )

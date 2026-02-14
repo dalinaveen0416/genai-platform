@@ -7,10 +7,27 @@ from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
 from langchain_classic.chains import RetrievalQA
 from langchain_groq import ChatGroq
+from langchain_core.prompts import PromptTemplate
 
 load_dotenv()
 
 VECTOR_PATH = "vectorstore/faiss_index"
+
+rag_prompt = PromptTemplate(
+    input_variables=["question", "context"],
+    template="""You are a helpful assistant that answers questions based on retrieved document chunks.
+
+Use the following retrieved information to answer the question.
+If you don't know the answer, say you don't know.
+if the retrieved information is not relevant, ignore it and say you don't know.
+if the questionis asking specifit one like collage name cgpa link etc then answer in the shortest way possible and do not include any extra information.
+
+
+Question: {question}
+Retrieved Information:
+{context}
+"""
+)
 
 class RAGService:
 
@@ -32,9 +49,11 @@ class RAGService:
 
         loader = PyPDFLoader(file_path)
         docs = loader.load()
+        docs = [doc for doc in docs if doc.page_content.strip()]
+
 
         splitter = RecursiveCharacterTextSplitter(
-            chunk_size=800,
+            chunk_size=1000,
             chunk_overlap=100
         )
 
@@ -55,7 +74,8 @@ class RAGService:
 
         self.qa_chain = RetrievalQA.from_chain_type(
             llm=self.llm,
-            retriever=vectorstore.as_retriever(search_kwargs={"k": 3})
+            retriever=vectorstore.as_retriever(search_kwargs={"k": 5})
+        , chain_type_kwargs={"prompt": rag_prompt}
         )
 
     def query(self, question):

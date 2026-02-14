@@ -1,0 +1,10 @@
+[
+  {
+    "question": "What is 10 * 5?",
+    "expected": "50"
+  },
+  {
+    "question": "Calculate simple interest for 100000 at 2% for 1 year",
+    "expected": "2000"
+  }
+]
