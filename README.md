@@ -63,10 +63,14 @@ step 4: run ui.py using streamlit run frontend/app.py
 and check it ...
 ...................................
 
-# Eval :-
+# Eval
 
 Rag_chat eval :
 
 Final Accuracy: 8/9
 Accuracy Percentage: 88.89%
 
+
+Agent chat :-
+
+Agent Accuracy: 2/2
